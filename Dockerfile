@@ -4,6 +4,9 @@ FROM centos:7
 # Copying all contents of rpmbuild repo inside container
 COPY . .
 
+#Custom Repository
+RUN curl -o /etc/yum.repos.d/ganapathi.repo https://download.opensuse.org/repositories/home:/ganapathi/CentOS_7/home:ganapathi.repo
+
 # Installing tools needed for rpmbuild , 
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
 RUN yum install -y rpm-build rpmdevtools gcc make coreutils python gcc-c++ openssl-devel lksctp-tools-devel doxygen-doxywizard postgresql-devel speex-devel alsa-lib-devel amrnb-devel gsm-devel dahdi-tools-devel
