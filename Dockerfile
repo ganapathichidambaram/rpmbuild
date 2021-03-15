@@ -36,7 +36,7 @@ RUN yum config-manager --set-enabled powertools
 
 # Installing tools needed for rpmbuild ,
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
-RUN yum install -y rpm-build rpmdevtools gcc make coreutils gcc-c++ openssl-devel lksctp-tools-devel doxygen-doxywizard postgresql-devel speex-devel alsa-lib-devel amrnb-devel gsm-devel dahdi-tools-devel which autoconf
+RUN dnf install -y rpm-build rpmdevtools gcc make coreutils-common gcc-c++ openssl-devel lksctp-tools-devel doxygen-doxywizard postgresql-devel speex-devel alsa-lib-devel amrnb-devel gsm-devel dahdi-tools-devel which autoconf
 
 # Setting up node to run our JS file
 # Download Node Linux binary
