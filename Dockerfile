@@ -32,7 +32,7 @@ RUN curl -o /etc/yum.repos.d/ganapathi.repo https://download.opensuse.org/reposi
 
 RUN yum install -y dnf-plugins-core
 
-RUN yum config-manager --set-enabled PowerTools
+RUN yum config-manager --set-enabled powertools
 
 # Installing tools needed for rpmbuild ,
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
