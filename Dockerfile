@@ -7,6 +7,10 @@ COPY . .
 #Custom Repository
 RUN curl -o /etc/yum.repos.d/ganapathi.repo https://download.opensuse.org/repositories/home:/ganapathi/CentOS_8_Stream/home:ganapathi.repo
 
+RUN yum install dnf-plugins-core
+
+RUN yum config-manager --set-enabled PowerTools
+
 # Installing tools needed for rpmbuild ,
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
 RUN yum install -y rpm-build rpmdevtools gcc make coreutils python gcc-c++ openssl-devel lksctp-tools-devel doxygen-doxywizard postgresql-devel speex-devel alsa-lib-devel amrnb-devel gsm-devel dahdi-tools-devel which autoconf
