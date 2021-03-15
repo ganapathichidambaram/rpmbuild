@@ -7,7 +7,7 @@ COPY . .
 #Custom Repository
 RUN curl -o /etc/yum.repos.d/ganapathi.repo https://download.opensuse.org/repositories/home:/ganapathi/CentOS_7/home:ganapathi.repo
 
-# Installing tools needed for rpmbuild , 
+# Installing tools needed for rpmbuild ,
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
 RUN yum install -y rpm-build rpmdevtools gcc make coreutils python gcc-c++ openssl-devel lksctp-tools-devel doxygen-doxywizard postgresql-devel speex-devel alsa-lib-devel amrnb-devel gsm-devel dahdi-tools-devel which autoconf
 
@@ -21,7 +21,7 @@ RUN tar --strip-components 1 -xvf node-v* -C /usr/local
 # Install all dependecies to execute main.js
 RUN npm install --production
 
-# All remaining logic goes inside main.js , 
-# where we have access to both tools of this container and 
+# All remaining logic goes inside main.js ,
+# where we have access to both tools of this container and
 # contents of git repo at /github/workspace
 ENTRYPOINT ["node", "/lib/main.js"]
