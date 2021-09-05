@@ -18,6 +18,7 @@ LABEL io.openshift.tags="base centos centos-stream"
 RUN rpm -ivh --replacefiles http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/centos-stream-release-8.4-1.el8.noarch.rpm \
                             http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/centos-stream-repos-8-2.el8.noarch.rpm \
                             http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/centos-gpg-keys-8-2.el8.noarch.rpm \
+                            https://pkgs.dyn.su/el8/base/x86_64/raven-release-1.0-1.el8.noarch.rpm \
     && rpm -e redhat-release \
     && dnf --setopt=tsflags=nodocs --setopt=install_weak_deps=false -y distro-sync \
     && dnf remove -y subscription-manager dnf-plugin-subscription-manager\
@@ -36,7 +37,7 @@ RUN yum config-manager --set-enabled powertools
 
 # Installing tools needed for rpmbuild ,
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
-RUN dnf install -y rpm-build rpmdevtools gcc make coreutils-common gcc-c++ openssl-devel lksctp-tools-devel doxygen-doxywizard postgresql-devel speex-devel alsa-lib-devel amrnb-devel gsm-devel dahdi-tools-devel which autoconf git
+RUN dnf install -y rpm-build rpmdevtools gcc make coreutils-common gcc-c++ openssl-devel lksctp-tools-devel doxygen-doxywizard postgresql-devel speex-devel alsa-lib-devel amrnb-devel gsm-devel dahdi-tools-devel which autoconf git qt-devel mysql-devel sqlite-devel
 
 # Setting up node to run our JS file
 # Download Node Linux binary
