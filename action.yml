@@ -22,7 +22,7 @@ outputs:
 
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ganapathichidambaram/rpmbuild:centos8'
 
 branding:
   icon: 'package'
