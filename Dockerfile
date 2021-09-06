@@ -13,7 +13,7 @@ FROM registry.access.redhat.com/ubi8:latest
 #LABEL io.k8s.display-name="CentOS Stream 8"
 #LABEL io.openshift.expose-services=""
 #LABEL io.openshift.tags="base centos centos-stream"
-
+COPY . .
 
 RUN curl -o /etc/yum.repos.d/ganapathi.repo https://download.opensuse.org/repositories/home:/ganapathi/CentOS_8/home:ganapathi.repo \
 	&& yum install -y dnf-plugins-core \
@@ -37,7 +37,7 @@ RUN curl -o /etc/yum.repos.d/ganapathi.repo https://download.opensuse.org/reposi
     && rm -f /etc/yum.repos.d/*.repo
 
 # Copying all contents of rpmbuild repo inside container
-COPY . .
+#COPY . .
 
 #Custom Repository
 #RUN curl -o /etc/yum.repos.d/ganapathi.repo https://download.opensuse.org/repositories/home:/ganapathi/CentOS_8/home:ganapathi.repo
